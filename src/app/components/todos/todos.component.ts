@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from "./../../moduls/Todo";
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+
+
+
 
 @Component({
   selector: 'app-todos',
@@ -12,7 +17,7 @@ todos:Todo[];
 
 inputTodo:string = "";
 
-  constructor() { }
+  constructor(private dataService: DataService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.todos = [{
@@ -46,5 +51,17 @@ inputTodo:string = "";
       completed: false
     });
     this.inputTodo = "";
+  }
+
+  onFormSubmit(Form: NgForm){
+
+  }
+
+  editTodo(todo: Todo){
+
+    const index = this.todos.indexOf(todo)
+    let dialogRef = this.dialog.open(EditTodoDialogComponent, {
+      width: '00px',
+    });
   }
 }

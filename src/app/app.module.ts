@@ -5,16 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
+import { EditTodoDialogComponent } from './edit-todo-dialog/edit-todo-dialog.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+    EditTodoDialogComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
